@@ -93,12 +93,20 @@ public enum VisitorTypes {
     case worker
 }
 
+protocol Adder {
+    func addBook()
+}
+
+protocol ProtocolName {
+    var name: String { get set }
+}
+
 private class NationalLibrary {
     let age: Int = 1991
     let status: String = "Open"
 }
 
-public class Human {
+public class Human: ProtocolName {
     var name: String
     var favouriteGenre: BookGenres
     var age: Int
@@ -127,7 +135,7 @@ public class Librarian: Human {
 
 var amountOfBooks: Int = 2_000_000
 
-private class MoreBooks {
+private class MoreBooks: Adder {
     func addBook() {
         if amountOfBooks < 2_000_000 {
             amountOfBooks += 1
