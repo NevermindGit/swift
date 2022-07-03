@@ -23,8 +23,14 @@ struct homeWork: HomeworkService {
     
     func fibonacci(n: Int) -> [Int] {
         var fib: [Int] = []
-        guard n > 1 else { return [n] }
-        fib.append(fibonacci(n: n-1)[0] + fibonacci(n: n-2)[0])
+        var a: Int = 0
+        var b: Int = 1
+        for _ in 0..<n {
+            let temp: Int = b
+            b = a
+            a = temp + b
+            fib.append(a)
+        }
         return fib
     }
     
